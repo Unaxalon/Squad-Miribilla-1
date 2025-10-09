@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="Página oficial de Squad Miribilla, club de fútbol amateur de Miribilla (Bilbao, España)" />
-  <title>Squad Miribilla ⚽ | Orgullo de Barrio</title>
+  <title>Squad Miribilla  | Orgullo de Barrio</title>
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
 
@@ -57,7 +57,6 @@
       </thead>
       <tbody>
         <tr><td>1</td><td>Juan Camilo Quevedo Puerta</td><td>Juan</td><td>Portero</td></tr>
-        <tr><td>2</td><td>Hugo Santos Pérez Santos</td><td>Hugo</td><td>Lateral</td></tr>
         <tr><td>5</td><td>Edixon Danovis Rincón Blanco</td><td>Danovis</td><td>Medio centro</td></tr>
         <tr><td>7</td><td>Ibai Martínez Rodríguez</td><td>Ibi</td><td>Medio centro</td></tr>
         <tr><td>10</td><td>Iker Vicente Bermejo Vicente</td><td>Vicente</td><td>Carrilero / Capitán</td></tr>
@@ -72,41 +71,7 @@
     </table>
   </section>
 
-  <!-- TIENDA -->
-  <section class="container mx-auto px-6 py-10 bg-pink-50 rounded-xl text-center">
-    <h2 class="text-2xl font-bold text-pink-600 mb-8">Tienda Oficial</h2>
-    <div class="grid md:grid-cols-3 gap-6">
-      <div class="bg-white shadow-md rounded-xl p-4">
-        <img src="uniforme_local.png" alt="Equipación Local" class="mx-auto h-40 object-contain mb-4">
-        <h3 class="font-semibold">Equipación Local 2025</h3>
-        <p class="text-pink-600 font-bold">25€</p>
-        <button onclick="addToCart('Equipación Local 2025', 25)" class="mt-3 bg-pink-600 text-white px-4 py-2 rounded-full hover:bg-pink-700">Añadir al carrito</button>
-      </div>
-      <div class="bg-white shadow-md rounded-xl p-4">
-        <img src="carnet.png" alt="Carnet de Socio" class="mx-auto h-40 object-contain mb-4">
-        <h3 class="font-semibold">Carnet de Socio 2025</h3>
-        <p class="text-pink-600 font-bold">10€</p>
-        <button onclick="addToCart('Carnet de Socio 2025', 10)" class="mt-3 bg-pink-600 text-white px-4 py-2 rounded-full hover:bg-pink-700">Añadir al carrito</button>
-      </div>
-      <div class="bg-white shadow-md rounded-xl p-4">
-        <img src="bufanda.png" alt="Bufanda Oficial" class="mx-auto h-40 object-contain mb-4">
-        <h3 class="font-semibold">Bufanda Oficial</h3>
-        <p class="text-pink-600 font-bold">12€</p>
-        <button onclick="addToCart('Bufanda Oficial', 12)" class="mt-3 bg-pink-600 text-white px-4 py-2 rounded-full hover:bg-pink-700">Añadir al carrito</button>
-      </div>
-    </div>
-  </section>
-
-  <!-- MODAL CARRITO -->
-  <div id="cartModal" class="hidden fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center">
-    <div class="bg-white rounded-2xl p-6 w-96">
-      <h3 class="text-xl font-bold mb-4 text-pink-600">🛒 Tu carrito</h3>
-      <ul id="cartItems" class="text-gray-700 mb-4 list-disc list-inside"></ul>
-      <p id="cartTotal" class="font-bold mb-4"></p>
-      <button onclick="checkout()" class="bg-pink-600 text-white px-4 py-2 rounded-full hover:bg-pink-700">Finalizar pedido</button>
-      <button onclick="closeCart()" class="ml-2 text-gray-600 underline">Cerrar</button>
-    </div>
-  </div>
+  
 
   <!-- Sección de próximos partidos y resultados -->
 <section class="container mx-auto px-6 py-16">
@@ -139,111 +104,207 @@
     © 2025 Squad Miribilla · Todos los derechos reservados
   </footer>
 
- <!-- SCRIPT DEL CARRITO MEJORADO -->
-<script>
-document.addEventListener('DOMContentLoaded', function () {
-  // Carga inicial
-  let cart = JSON.parse(localStorage.getItem('sqm_cart') || '[]');
+<!-- Header -->
+  <header class="bg-pink-600 text-white py-4 shadow">
+    <div class="container mx-auto px-6 flex items-center justify-between">
+      <div class="flex items-center gap-4">
+        <img src="escudo.png" alt="Escudo" class="w-12 h-12 rounded-full border-2 border-white object-cover">
+        <h1 class="text-2xl font-bold">Squad Miribilla</h1>
+      </div>
 
-  const cartCountEl = document.getElementById('cartCount');
-  const cartModal = document.getElementById('cartModal');
-  const cartItemsEl = document.getElementById('cartItems');
-  const cartTotalEl = document.getElementById('cartTotal');
+      <!-- Carrito icon -->
+      <button id="cartButton" class="relative bg-white text-pink-600 px-3 py-2 rounded-full hover:bg-pink-100">
+        <span class="sr-only">Abrir carrito</span>
+        🛒
+        <span id="cartCount" class="absolute -top-2 -right-2 bg-pink-600 text-white text-xs px-2 py-0.5 rounded-full">0</span>
+      </button>
+    </div>
+  </header>
 
-  // Actualiza contador visual
-  function updateCount() {
-    if (cartCountEl) cartCountEl.innerText = cart.length;
-  }
+  <!-- Main -->
+  <main class="container mx-auto px-6 py-10">
 
-  // Función global para añadir al carrito (mantener compatibilidad con botones onclick)
-  window.addToCart = function (name, price) {
-    price = Number(price) || 0;
-    cart.push({ name: String(name), price: price });
-    localStorage.setItem('sqm_cart', JSON.stringify(cart));
-    updateCount();
+    <!-- Tienda -->
+    <section id="tienda" class="mb-12">
+      <h2 class="text-3xl font-bold text-pink-600 mb-6 text-center">Tienda Oficial</h2>
 
-    // Pequeña animación visual cuando se añade algo
-    if (cartCountEl) {
-      cartCountEl.classList.add('transform', 'scale-110');
-      setTimeout(() => cartCountEl.classList.remove('scale-110'), 180);
-    }
-  };
+      <div class="grid gap-6 md:grid-cols-3">
+        <!-- Producto 1 -->
+        <div class="product-card bg-white rounded-2xl shadow p-6 text-center">
+          <img src="uniforme_local.png" alt="Equipación Local" class="mx-auto h-40 object-contain mb-4">
+          <h3 class="nombre font-semibold">Equipación Local 2025</h3>
+          <p class="precio text-pink-600 font-bold">25</p>
+          <button class="mt-4 add-button bg-pink-600 text-white px-4 py-2 rounded-full" data-name="Equipación Local 2025" data-price="25">Añadir al carrito</button>
+        </div>
 
-  // Abrir modal del carrito
-  function openCart() {
-    if (!cartModal || !cartItemsEl || !cartTotalEl) return;
-    cartModal.classList.remove('hidden');
+        <!-- Producto 2 -->
+        <div class="product-card bg-white rounded-2xl shadow p-6 text-center">
+          <img src="carnet.png" alt="Carnet de socio" class="mx-auto h-40 object-contain mb-4">
+          <h3 class="nombre font-semibold">Carnet de Socio 2025</h3>
+          <p class="precio text-pink-600 font-bold">10</p>
+          <button class="mt-4 add-button bg-pink-600 text-white px-4 py-2 rounded-full" data-name="Carnet de Socio 2025" data-price="10">Añadir al carrito</button>
+        </div>
 
-    if (cart.length === 0) {
-      cartItemsEl.innerHTML = '<li class="py-1">Tu carrito está vacío</li>';
-      cartTotalEl.innerText = 'Total: 0€';
-      return;
-    }
+        <!-- Producto 3 -->
+        <div class="product-card bg-white rounded-2xl shadow p-6 text-center">
+          <img src="bufanda.png" alt="Bufanda" class="mx-auto h-40 object-contain mb-4">
+          <h3 class="nombre font-semibold">Bufanda Oficial</h3>
+          <p class="precio text-pink-600 font-bold">12</p>
+          <button class="mt-4 add-button bg-pink-600 text-white px-4 py-2 rounded-full" data-name="Bufanda Oficial" data-price="12">Añadir al carrito</button>
+        </div>
+      </div>
+    </section>
 
-    // Construir lista y total
-    let total = 0;
-    cartItemsEl.innerHTML = '';
-    cart.forEach((item, index) => {
-      total += Number(item.price);
-      const li = document.createElement('li');
-      li.className = 'py-1 flex items-center justify-between';
-      li.innerHTML = `<span><strong>${escapeHtml(item.name)}</strong> - ${Number(item.price)}€</span>
-                      <button data-remove="${index}" class="ml-4 text-sm text-red-600 hover:underline">Eliminar</button>`;
-      cartItemsEl.appendChild(li);
-    });
-    cartTotalEl.innerText = 'Total: ' + total + '€';
+  </main>
 
-    // Attacha listeners a botones eliminar
-    cartItemsEl.querySelectorAll('[data-remove]').forEach(btn => {
-      btn.addEventListener('click', function () {
-        const idx = Number(this.getAttribute('data-remove'));
-        if (!Number.isNaN(idx)) {
-          cart.splice(idx, 1);
-          localStorage.setItem('sqm_cart', JSON.stringify(cart));
+  <!-- Carrito modal (hidden por defecto) -->
+  <div id="cartModal" class="hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+    <div class="bg-white rounded-2xl w-11/12 md:w-96 p-6">
+      <h3 class="text-xl font-bold text-pink-600 mb-4">🛒 Tu carrito</h3>
+      <ul id="cartItems" class="mb-4 list-disc list-inside text-gray-800"></ul>
+      <p id="cartTotal" class="font-bold mb-4">Total: 0€</p>
+
+      <div class="flex gap-3">
+        <button onclick="checkout()" class="flex-1 bg-pink-600 text-white py-2 rounded-full">Finalizar pedido</button>
+        <button onclick="closeCart()" class="flex-1 border border-gray-300 py-2 rounded-full">Cerrar</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="bg-gray-900 text-white text-center py-4 mt-12">
+    © 2025 Squad Miribilla
+  </footer>
+
+  <!-- Script del carrito (inline para evitar problemas de carga) -->
+  <script>
+    (function () {
+      // Evitar que algo tarde en cargarse: ejecutar cuando DOM listo
+      document.addEventListener('DOMContentLoaded', function () {
+        // Estado del carrito (persistido en localStorage)
+        const STORAGE_KEY = 'sqm_cart_v1';
+        let cart = JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]');
+
+        // Elementos principales
+        const cartCountEl = document.getElementById('cartCount');
+        const cartModal = document.getElementById('cartModal');
+        const cartItemsEl = document.getElementById('cartItems');
+        const cartTotalEl = document.getElementById('cartTotal');
+        const cartButton = document.getElementById('cartButton');
+
+        // Exponer funciones globales (para botones inline)
+        window.addToCart = function (name, price) {
+          price = Number(price) || 0;
+          cart.push({ name: String(name), price: price });
+          localStorage.setItem(STORAGE_KEY, JSON.stringify(cart));
           updateCount();
-          openCart(); // refresca vista
+          // pequeña animación de feedback:
+          if (cartCountEl) {
+            cartCountEl.classList.add('animate-pulse');
+            setTimeout(() => cartCountEl.classList.remove('animate-pulse'), 300);
+          }
+        };
+
+        window.closeCart = function () {
+          if (cartModal) cartModal.classList.add('hidden');
+        };
+
+        window.checkout = function () {
+          if (cart.length === 0) {
+            alert('Tu carrito está vacío.');
+            return;
+          }
+          const total = cart.reduce((s, i) => s + Number(i.price), 0);
+          const lines = cart.map(i => - ${i.name} (${i.price}€)).join('\n');
+
+          // CAMBIA el número por tu WhatsApp (sin + ni espacios), ejemplo 34612345678
+          const waNumber = '34641683104';
+          const message = encodeURIComponent(Hola Squad Miribilla 👋\nQuiero hacer este pedido:\n${lines}\nTotal: ${total}€);
+          window.open(https://wa.me/${waNumber}?text=${message}, '_blank');
+        };
+
+        // Actualiza contador visual
+        function updateCount() {
+          if (!cartCountEl) return;
+          cartCountEl.innerText = cart.length;
         }
+
+        // Renderiza items en el modal
+        function renderCart() {
+          if (!cartItemsEl || !cartTotalEl) return;
+          cartItemsEl.innerHTML = '';
+          if (cart.length === 0) {
+            cartItemsEl.innerHTML = '<li class="py-1">Tu carrito está vacío.</li>';
+            cartTotalEl.innerText = 'Total: 0€';
+            return;
+          }
+          let total = 0;
+          cart.forEach((item, idx) => {
+            total += Number(item.price);
+            const li = document.createElement('li');
+            li.className = 'py-1 flex justify-between items-center';
+            li.innerHTML = `<span><strong>${escapeHtml(item.name)}</strong> - ${Number(item.price)}€</span>
+                            <button data-idx="${idx}" class="text-sm text-red-600 hover:underline ml-3">Eliminar</button>`;
+            cartItemsEl.appendChild(li);
+          });
+          cartTotalEl.innerText = 'Total: ' + total + '€';
+
+          // listeners eliminar
+          cartItemsEl.querySelectorAll('[data-idx]').forEach(btn => {
+            btn.addEventListener('click', function () {
+              const idx = Number(this.getAttribute('data-idx'));
+              if (!Number.isNaN(idx)) {
+                cart.splice(idx, 1);
+                localStorage.setItem(STORAGE_KEY, JSON.stringify(cart));
+                updateCount();
+                renderCart();
+              }
+            });
+          });
+        }
+
+        // abrir carrito
+        window.openCart = function () {
+          if (!cartModal) return;
+          renderCart();
+          cartModal.classList.remove('hidden');
+        };
+
+        // conectar el botón del header
+        if (cartButton) {
+          cartButton.addEventListener('click', function () {
+            openCart();
+          });
+        }
+
+        // conectar botones de productos (delegación)
+        document.querySelectorAll('.add-button').forEach(btn => {
+          btn.addEventListener('click', function () {
+            const name = this.getAttribute('data-name') || this.closest('.product-card')?.querySelector('.nombre')?.innerText || 'Producto';
+            const price = Number(this.getAttribute('data-price') || this.closest('.product-card')?.querySelector('.precio')?.innerText || 0);
+            window.addToCart(name, price);
+          });
+        });
+
+        // Escuchar ESC para cerrar modal
+        document.addEventListener('keydown', function (e) {
+          if (e.key === 'Escape') closeCart();
+        });
+
+        // helper safe
+        function escapeHtml(unsafe) {
+          return String(unsafe).replaceAll('&','&amp;').replaceAll('<','&lt;').replaceAll('>','&gt;').replaceAll('"','&quot;').replaceAll("'",'&#039;');
+        }
+
+        // init
+        updateCount();
       });
-    });
-  }
+    })();
+  </script>
 
-  // Exponer cerrar y checkout globalmente porque los botones usan onclick
-  window.closeCart = function () {
-    if (cartModal) cartModal.classList.add('hidden');
-  };
 
-  window.checkout = function () {
-    if (cart.length === 0) {
-      alert('Tu carrito está vacío.');
-      return;
-    }
-    const total = cart.reduce((s, i) => s + Number(i.price), 0);
-    const lines = cart.map(i => - ${i.name} (${i.price}€)).join('\n');
-
-    // CAMBIA aqui tu número de WhatsApp sin espacios ni signos: ejemplo 346XXXXXXXXX
-    const waNumber = '34641683104';
-    const message = encodeURIComponent(Hola Squad Miribilla 👋 Quiero hacer este pedido:\n${lines}\nTotal: ${total}€);
-    window.open(https://wa.me/${waNumber}?text=${message}, '_blank');
-  };
-
-  // Conectar botón del header (si existe)
-  const cartButton = document.getElementById('cartButton');
-  if (cartButton) cartButton.addEventListener('click', openCart);
-
-  updateCount();
-
-  // pequeño helper para evitar inyección al generar HTML
-  function escapeHtml(unsafe) {
-    return String(unsafe)
-      .replace(/&/g, "&amp;")
-      .replace(/</g, "&lt;")
-      .replace(/>/g, "&gt;")
-      .replace(/"/g, "&quot;")
-      .replace(/'/g, "&#039;");
-  }
-});
-<script src="script.js"></script>
 </body>
 </html>
+
 
 
