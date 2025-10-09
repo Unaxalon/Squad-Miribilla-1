@@ -3,344 +3,179 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Página oficial de Squad Miribilla, club de fútbol amateur del barrio de Miribilla (Bilbao, España)." />
+  <meta name="description" content="Página oficial de Squad Miribilla, club de fútbol amateur de Miribilla (Bilbao, España)" />
   <title>Squad Miribilla ⚽ | Orgullo de Barrio</title>
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
+
 <body class="bg-white text-gray-900 font-sans">
 
-  <!-- Encabezado -->
-  <header class="bg-pink-500 text-white py-6 shadow-lg">
-    <div class="container mx-auto px-6 flex flex-col md:flex-row items-center justify-between">
+  <!-- ENCABEZADO -->
+  <header class="bg-pink-600 text-white py-5 shadow-lg">
+    <div class="container mx-auto flex items-center justify-between px-6">
       <div class="flex items-center space-x-4">
         <img src="escudo.png" alt="Escudo Squad Miribilla" class="w-14 h-14 rounded-full border-2 border-white object-cover" />
         <h1 class="text-3xl font-bold">Squad Miribilla</h1>
       </div>
-      <nav class="mt-4 md:mt-0">
-        <ul class="flex space-x-6 text-lg font-semibold">
-          <li><a href="#historia" class="hover:text-black">Historia</a></li>
-          <li><a href="#equipo" class="hover:text-black">Equipo</a></li>
-          <li><a href="#palmares" class="hover:text-black">Palmarés</a></li>
-          <li><a href="#contacto" class="hover:text-black">Contacto</a></li>
-        </ul>
-      </nav>
+      <!-- BOTÓN CARRITO -->
+      <button id="cartButton" class="relative bg-white text-pink-600 rounded-full p-2 hover:bg-pink-100 transition">
+        🛒
+        <span id="cartCount" class="absolute -top-2 -right-2 bg-pink-600 text-white text-xs px-2 py-0.5 rounded-full">0</span>
+      </button>
     </div>
   </header>
 
-  <!-- Hero -->
-  <section class="bg-black text-white text-center py-20 bg-cover bg-center" style="background-image:url('banner.jpg')">
-    <div class="bg-black bg-opacity-60 py-16 px-4">
-      <h2 class="text-4xl md:text-5xl font-extrabold mb-4">Orgullo de Barrio, Pasión por el Fútbol ⚽</h2>
-      <p class="text-lg md:text-xl mb-6 max-w-2xl mx-auto">Fundado en 2023 en Miribilla (Bilbao), Squad Miribilla representa la unión, la amistad y el amor por el deporte.</p>
-      <a href="#historia" class="bg-pink-500 hover:bg-pink-600 text-white px-6 py-3 rounded-full font-bold">Conoce nuestra historia</a>
+  <!-- HISTORIA -->
+  <section class="container mx-auto px-6 py-10">
+    <h2 class="text-2xl font-bold text-pink-600 mb-4">Historia</h2>
+    <p>
+      Squad Miribilla es un club de fútbol amateur del barrio de Miribilla, Bilbao. Fundado el 7 de septiembre de 2023 por un grupo de amigos, 
+      el club ha crecido progresivamente hasta convertirse en un referente deportivo y social del barrio.
+    </p>
+  </section>
+
+  <!-- ASOCIACIÓN MIRIBILLA -->
+  <section class="container mx-auto px-6 py-10 bg-pink-50 rounded-xl">
+    <h2 class="text-2xl font-bold text-pink-600 mb-4">Asociación Miribilla</h2>
+    <p>
+      Squad Miribilla forma parte de la Asociación Miribilla, una organización que promueve el fútbol amateur y la convivencia deportiva 
+      entre clubes locales. Alterna entre dos torneos principales: la <b>Copa Miribilla</b> y la <b>Liga A.M.</b>
+    </p>
+  </section>
+
+  <!-- JUGADORES -->
+  <section class="container mx-auto px-6 py-10">
+    <h2 class="text-2xl font-bold text-pink-600 mb-4">Jugadores</h2>
+    <table class="table-auto w-full text-left border border-gray-300">
+      <thead class="bg-pink-600 text-white">
+        <tr>
+          <th class="p-2">N.º</th>
+          <th class="p-2">Nombre</th>
+          <th class="p-2">Apodo</th>
+          <th class="p-2">Posición</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>1</td><td>Juan Camilo Quevedo Puerta</td><td>Juan</td><td>Portero</td></tr>
+        <tr><td>2</td><td>Hugo Santos Pérez Santos</td><td>Hugo</td><td>Lateral</td></tr>
+        <tr><td>5</td><td>Edixon Danovis Rincón Blanco</td><td>Danovis</td><td>Medio centro</td></tr>
+        <tr><td>7</td><td>Ibai Martínez Rodríguez</td><td>Ibi</td><td>Medio centro</td></tr>
+        <tr><td>10</td><td>Iker Vicente Bermejo Vicente</td><td>Vicente</td><td>Carrilero / Capitán</td></tr>
+        <tr><td>11</td><td>Lukas Eguren Cabanes</td><td>Luka</td><td>Delantero</td></tr>
+        <tr><td>12</td><td>Washington Patricio Tonguino Cahuatijo</td><td>Patrik</td><td>Carrilero</td></tr>
+        <tr><td>13</td><td>Telmo Fernández Díaz de Alda</td><td>Telmo</td><td>Carrilero / Capitán</td></tr>
+        <tr><td>16</td><td>Mikel Valente Gorostiza</td><td>Valente</td><td>Delantero</td></tr>
+        <tr><td>19</td><td>Unax Alonso García</td><td>Teddy</td><td>Delantero / Capitán</td></tr>
+        <tr><td>20</td><td>Aimar Fernández Díaz de Alda</td><td>Aimar</td><td>Delantero</td></tr>
+        <tr><td>32</td><td>Yovanny José Henríquez Mora</td><td>Yovanny</td><td>Centra</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- TIENDA -->
+  <section class="container mx-auto px-6 py-10 bg-pink-50 rounded-xl text-center">
+    <h2 class="text-2xl font-bold text-pink-600 mb-8">Tienda Oficial</h2>
+    <div class="grid md:grid-cols-3 gap-6">
+      <div class="bg-white shadow-md rounded-xl p-4">
+        <img src="uniforme_local.png" alt="Equipación Local" class="mx-auto h-40 object-contain mb-4">
+        <h3 class="font-semibold">Equipación Local 2025</h3>
+        <p class="text-pink-600 font-bold">25€</p>
+        <button onclick="addToCart('Equipación Local 2025', 25)" class="mt-3 bg-pink-600 text-white px-4 py-2 rounded-full hover:bg-pink-700">Añadir al carrito</button>
+      </div>
+      <div class="bg-white shadow-md rounded-xl p-4">
+        <img src="carnet.png" alt="Carnet de Socio" class="mx-auto h-40 object-contain mb-4">
+        <h3 class="font-semibold">Carnet de Socio 2025</h3>
+        <p class="text-pink-600 font-bold">10€</p>
+        <button onclick="addToCart('Carnet de Socio 2025', 10)" class="mt-3 bg-pink-600 text-white px-4 py-2 rounded-full hover:bg-pink-700">Añadir al carrito</button>
+      </div>
+      <div class="bg-white shadow-md rounded-xl p-4">
+        <img src="bufanda.png" alt="Bufanda Oficial" class="mx-auto h-40 object-contain mb-4">
+        <h3 class="font-semibold">Bufanda Oficial</h3>
+        <p class="text-pink-600 font-bold">12€</p>
+        <button onclick="addToCart('Bufanda Oficial', 12)" class="mt-3 bg-pink-600 text-white px-4 py-2 rounded-full hover:bg-pink-700">Añadir al carrito</button>
+      </div>
     </div>
   </section>
 
-  <!-- Historia -->
-  <section id="historia" class="py-16 px-6 md:px-20 bg-gray-50">
-    <h2 class="text-3xl font-bold text-center mb-10 text-pink-500">Nuestra Historia</h2>
-    <div class="max-w-4xl mx-auto text-lg space-y-6">
-      <p><strong>Squad Miribilla</strong> nació el <strong>7 de septiembre de 2023</strong> como <em>Squad Random</em>, un grupo de amigos unidos por el fútbol y por su barrio. Lo que comenzó como un proyecto recreativo se transformó rápidamente en un equipo organizado y querido en toda Miribilla.</p>
-      <p>En junio de 2024, el club adoptó el nombre <strong>Squad Random Miribilla</strong> y estrenó su cuenta oficial de Instagram, conectando con la comunidad local. El debut llegó el 30 de junio frente a <strong>Cumunistas</strong>, y aunque el marcador no fue favorable, ese partido marcó el inicio de una historia llena de pasión.</p>
-      <p>El equipo logró su <strong>primera victoria</strong> el 10 de noviembre de 2024 frente a <strong>Lightning King F.C.</strong> y solo un mes después celebró su <strong>primer título</strong>: la Copa Miribilla 🏆.</p>
-      <p>En enero de 2025, el club adoptó su identidad definitiva: <strong>Squad Miribilla</strong>, símbolo de orgullo, unión y amor por el barrio.</p>
+  <!-- MODAL CARRITO -->
+  <div id="cartModal" class="hidden fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center">
+    <div class="bg-white rounded-2xl p-6 w-96">
+      <h3 class="text-xl font-bold mb-4 text-pink-600">🛒 Tu carrito</h3>
+      <ul id="cartItems" class="text-gray-700 mb-4 list-disc list-inside"></ul>
+      <p id="cartTotal" class="font-bold mb-4"></p>
+      <button onclick="checkout()" class="bg-pink-600 text-white px-4 py-2 rounded-full hover:bg-pink-700">Finalizar pedido</button>
+      <button onclick="closeCart()" class="ml-2 text-gray-600 underline">Cerrar</button>
     </div>
-  </section>
+  </div>
 
-  <section class="bg-white py-12">
-  <h2 class="text-3xl font-bold text-center text-pink-600 mb-4">Resultados en Equipea</h2>
-  <p class="text-center text-gray-700 mb-6">Consulta los próximos partidos y resultados en directo.</p>
+  <!-- Sección de próximos partidos y resultados -->
+<section class="container mx-auto px-6 py-16">
+  <h2 class="text-3xl font-bold text-pink-600 mb-6 text-center">
+    📅 Próximos Partidos y Resultados
+  </h2>
 
-  <div class="max-w-6xl mx-auto">
-    <iframe src="https://equipea.es/squadmiribilla"
-            width="100%"
-            height="800"
-            style="border: 2px solid #f472b6; border-radius: 16px;"
-            loading="lazy">
+  <div class="bg-white shadow-xl rounded-2xl overflow-hidden">
+    <!-- Vista previa de la página de Equipea -->
+    <iframe 
+      src="https://equipea.es/squadmiribilla" 
+      width="100%" 
+      height="700" 
+      style="border:0;" 
+      allowfullscreen 
+      loading="lazy">
     </iframe>
   </div>
-</section>
-  
-  <!-- Equipo -->
-  <section id="equipo" class="py-16 px-6 md:px-20 bg-white">
-    <h2 class="text-3xl font-bold text-center mb-10 text-pink-500">El Equipo</h2>
-    <div class="max-w-5xl mx-auto grid md:grid-cols-2 gap-8 items-center">
-      <img src="equipo.jpg" alt="Foto del equipo" class="rounded-2xl shadow-lg object-cover">
-      <div class="space-y-4 text-lg">
-        <p><strong>Presidente:</strong> Unax Alonso García</p>
-        <p><strong>Vicepresidente:</strong> Iker Vicente Bermejo</p>
-        <p><strong>Director deportivo:</strong> Telmo Fernández Díaz de Alda</p>
-        <p><strong>Entrenador:</strong> Jon Ander Díez Silva</p>
-        <p><strong>Colores:</strong> Rosa, blanco, negro y azul</p>
-        <p><strong>Apodos:</strong> La Squad, Los Topos, Mineros, Blanqui Rosas</p>
-        <p><strong>Filial:</strong> Miribillako Jendea</p>
-      </div>
-    </div>
 
-    <!-- Sección: Jugadores -->
-<section id="jugadores" class="py-16 bg-gray-100">
-  <div class="container mx-auto px-6">
-    <h2 class="text-3xl font-bold text-center text-pink-600 mb-8">Plantilla 2024-25</h2>
-
-    <div class="overflow-x-auto">
-      <table class="min-w-full border border-gray-300 bg-white shadow-lg rounded-lg text-center">
-        <thead class="bg-pink-500 text-white">
-          <tr>
-            <th class="py-3 px-4 border">N.º</th>
-            <th class="py-3 px-4 border">Nombre completo</th>
-            <th class="py-3 px-4 border">Apodo</th>
-            <th class="py-3 px-4 border">Posición</th>
-          </tr>
-        </thead>
-        <tbody class="text-gray-800">
-          <tr><td class="border px-4 py-2">1</td><td class="border px-4 py-2">Juan Camilo Quevedo Puerta</td><td class="border px-4 py-2">Juan</td><td class="border px-4 py-2">Guardameta</td></tr>
-          <tr><td class="border px-4 py-2">5</td><td class="border px-4 py-2">Edixon Danovis Rincón Blanco</td><td class="border px-4 py-2">Danovis</td><td class="border px-4 py-2">Medio centro</td></tr>
-          <tr><td class="border px-4 py-2">7</td><td class="border px-4 py-2">Ibai Martínez Rodríguez</td><td class="border px-4 py-2">Ibi</td><td class="border px-4 py-2">Medio centro</td></tr>
-          <tr><td class="border px-4 py-2">10</td><td class="border px-4 py-2">Iker Vicente Bermejo Vicente</td><td class="border px-4 py-2">Vicente</td><td class="border px-4 py-2">Carrilero / Capitán</td></tr>
-          <tr><td class="border px-4 py-2">11</td><td class="border px-4 py-2">Lukas Eguren Cabanes</td><td class="border px-4 py-2">Luka</td><td class="border px-4 py-2">Delantero</td></tr>
-          <tr><td class="border px-4 py-2">12</td><td class="border px-4 py-2">Washington Patricio Tonguino Cahuatijo</td><td class="border px-4 py-2">Patrik</td><td class="border px-4 py-2">Carrilero</td></tr>
-          <tr><td class="border px-4 py-2">13</td><td class="border px-4 py-2">Telmo Fernández Díaz de Alda</td><td class="border px-4 py-2">Telmo</td><td class="border px-4 py-2">Carrilero / Capitán</td></tr>
-          <tr><td class="border px-4 py-2">16</td><td class="border px-4 py-2">Mikel Valente Gorostiza</td><td class="border px-4 py-2">Valente</td><td class="border px-4 py-2">Delantero</td></tr>
-          <tr><td class="border px-4 py-2">19</td><td class="border px-4 py-2">Unax Alonso García</td><td class="border px-4 py-2">Teddy</td><td class="border px-4 py-2">Delantero / Capitán</td></tr>
-          <tr><td class="border px-4 py-2">20</td><td class="border px-4 py-2">Aimar Fernández Díaz de Alda</td><td class="border px-4 py-2">Aimar</td><td class="border px-4 py-2">Delantero</td></tr>
-          <tr><td class="border px-4 py-2">32</td><td class="border px-4 py-2">Yovanny José Henríquez Mora</td><td class="border px-4 py-2">Yovanny</td><td class="border px-4 py-2">Central</td></tr>
-        </tbody>
-      </table>
-    </div>
-  </div>
+  <p class="text-center text-gray-600 mt-4">
+    Información actualizada por 
+    <a href="https://equipea.com" target="_blank" class="text-pink-600 hover:underline">
+      Equipea
+    </a>
+  </p>
 </section>
 
-<!-- Sección: Cuerpo técnico -->
-<section id="tecnico" class="py-12 bg-white">
-  <div class="container mx-auto px-6 text-center">
-    <h2 class="text-3xl font-bold text-pink-600 mb-6">Cuerpo Técnico</h2>
-    <p class="text-gray-800 text-lg"><strong>Entrenador:</strong> Jon Ander Díez Silva “Jonny”</p>
-  </div>
-</section>
-    
-    <!-- Sección Asociación Miribilla -->
-<section id="asociacion" class="bg-gray-100 py-12">
-  <div class="container mx-auto px-6">
-    <h2 class="text-3xl font-bold text-center text-pink-600 mb-6">Asociación Miribilla</h2>
-
-    <p class="text-gray-700 text-lg leading-relaxed mb-4">
-      <strong>Squad Miribilla</strong> es un club de fútbol perteneciente a la <strong>Asociación Miribilla</strong>, una organización que agrupa a varios equipos locales con el objetivo de fomentar la práctica del fútbol amateur y fortalecer la convivencia deportiva entre clubes de la zona.
-    </p>
-    <p class="text-gray-700 text-lg leading-relaxed mb-4">
-      No solo se dedica a organizar torneos de verano, sino que también actúa como una <strong>balanza económica y mercado de fichajes interno</strong>.
-    </p>
-    <p class="text-gray-700 text-lg leading-relaxed mb-4">
-      El club es <strong>uno de los fundadores</strong> de la Asociación Miribilla y participa activamente en sus competiciones. La estructura alterna entre dos torneos principales: la <strong>Copa Miribilla</strong> (años pares) y la <strong>Liga A.M.</strong> (años impares).
-    </p>
-    <p class="text-gray-700 text-lg leading-relaxed mb-4">
-      Como cierre de temporada, en diciembre se celebra la <strong>Finalissimam</strong>, enfrentando al campeón de la Copa Miribilla con el campeón de la Liga A.M., para determinar al <strong>campeón absoluto</strong> de la Asociación.
-    </p>
-
-    <p class="text-gray-700 text-lg leading-relaxed mb-6">
-      <strong>Squad Miribilla</strong> es el <strong>actual campeón de la Copa Miribilla 2024</strong>, y disputará la <strong>Finalissimam 2025</strong> contra el campeón de la <strong>Liga A.M. 2025</strong>.
-    </p>
-
-    <h3 class="text-2xl font-semibold text-pink-500 mb-4">Integrantes de la Asociación Miribilla</h3>
-    <ul class="list-disc list-inside text-gray-700 mb-6">
-      <li><strong>Squad Miribilla</strong></li>
-      <li><strong>Los Panas F.C.</strong></li>
-      <li><strong>Águilas del Norte</strong></li>
-      <li><strong>Palmeiras</strong></li>
-      <li><strong>Sancheska F.C.</strong> <em>(vetado)</em></li>
-      <li><strong>Atlético San Cristóbal</strong> <em>(vetado)</em></li>
-      <li><strong>Miribillako Jendea</strong> <em>(inactivo)</em></li>
-    </ul>
-
-    <h4 class="text-xl font-semibold text-pink-500 mb-2">Situación de los clubes asociados</h4>
-    <ul class="list-disc list-inside text-gray-700 mb-8">
-      <li><strong>Sancheska F.C.</strong> fue <strong>vetado</strong> por <em>impagos reiterados</em>.</li>
-      <li><strong>Atlético San Cristóbal</strong> fue <strong>vetado</strong> por <em>faltas de respeto e impagos</em>.</li>
-      <li><strong>Miribillako Jendea</strong>, filial de Squad Miribilla, está <strong>inactivo</strong> por <em>falta de jugadores</em>.</li>
-    </ul>
-
-    <h3 class="text-2xl font-semibold text-center text-pink-600 mb-4">Tabla de Clasificación – Liga A.M. 2025</h3>
-
-    <div class="overflow-x-auto">
-      <table class="min-w-full border border-gray-300 bg-white text-center">
-        <thead class="bg-pink-500 text-white">
-          <tr>
-            <th class="py-2 px-3 border">Posición</th>
-            <th class="py-2 px-3 border">Equipo</th>
-            <th class="py-2 px-3 border">PJ</th>
-            <th class="py-2 px-3 border">V</th>
-            <th class="py-2 px-3 border">E</th>
-            <th class="py-2 px-3 border">P</th>
-            <th class="py-2 px-3 border">DG</th>
-            <th class="py-2 px-3 border">% Clasificación</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr><td>1</td><td><strong>Los Panas F.C. (LOS)</strong></td><td>9</td><td>7</td><td>0</td><td>2</td><td>+16</td><td>77.8%</td></tr>
-          <tr><td>2</td><td><strong>Atlético San Cristóbal (ATLS)</strong></td><td>5</td><td>5</td><td>0</td><td>0</td><td>+32</td><td>100.0%</td></tr>
-          <tr><td>3</td><td><strong>Águilas del Norte (ÁGUD)</strong></td><td>5</td><td>4</td><td>0</td><td>1</td><td>+11</td><td>80.0%</td></tr>
-          <tr><td>4</td><td><strong>Palmeiras (PALM)</strong></td><td>9</td><td>4</td><td>0</td><td>5</td><td>+1</td><td>44.4%</td></tr>
-          <tr><td>5</td><td><strong>Squad Miribilla (SQUM)</strong></td><td>9</td><td>2</td><td>0</td><td>7</td><td>-39</td><td>22.2%</td></tr>
-          <tr><td>6</td><td><strong>Miribillako Jendea (MJ)</strong></td><td>9</td><td>3</td><td>0</td><td>6</td><td>-3</td><td>33.3%</td></tr>
-          <tr><td>7</td><td><strong>Sancheska F.C. (SANF)</strong></td><td>4</td><td>0</td><td>0</td><td>4</td><td>-18</td><td>0.0%</td></tr>
-        </tbody>
-      </table>
-    </div>
-
-    <p class="text-gray-600 text-sm mt-4 text-center">
-      <strong>Leyenda:</strong> PJ = Partidos jugados, V = Victorias, E = Empates, P = Derrotas, DG = Diferencia de goles, % = Porcentaje de clasificación.
-    </p>
-  </div>
-</section>
-    
-    <!-- Uniformes -->
-    <div class="mt-16 text-center">
-      <h3 class="text-2xl font-semibold mb-6 text-pink-500">Uniformes Oficiales</h3>
-      <div class="flex flex-col md:flex-row justify-center gap-10">
-        <div>
-          <img src="uniforme_local.png" alt="Uniforme local" class="w-48 h-auto mx-auto rounded-xl shadow">
-          <p class="mt-2 font-medium">Local</p>
-        </div>
-        <div>
-          <img src="uniforme_visitante.png" alt="Uniforme visitante" class="w-48 h-auto mx-auto rounded-xl shadow">
-          <p class="mt-2 font-medium">Visitante</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Palmarés -->
-  <section id="palmares" class="py-16 px-6 md:px-20 bg-gray-50">
-    <h2 class="text-3xl font-bold text-center mb-10 text-pink-500">Palmarés</h2>
-    <div class="max-w-3xl mx-auto text-center">
-      <div class="bg-white shadow rounded-2xl p-8 border-t-4 border-pink-500">
-        <h3 class="text-2xl font-semibold mb-4">🏆 Copa Miribilla (2024)</h3>
-        <p class="text-lg text-gray-700">Primer título oficial del club, conseguido el 15 de diciembre de 2024 tras una temporada llena de esfuerzo y compañerismo.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- Contacto -->
-  <section id="contacto" class="py-16 px-6 md:px-20 bg-white">
-    <h2 class="text-3xl font-bold text-center mb-10 text-pink-500">Contacto</h2>
-    <div class="max-w-3xl mx-auto text-center space-y-6">
-      <p class="text-lg">¿Quieres contactar con nosotros, organizar un amistoso o unirte al proyecto?</p>
-      <p class="text-lg">Escríbenos o síguenos en redes:</p>
-      <div class="flex justify-center space-x-6 mt-6">
-        <a href="https://instagram.com/" target="_blank" class="bg-pink-500 hover:bg-pink-600 text-white px-6 py-3 rounded-full font-semibold">Instagram</a>
-      </div>
-
-      <!-- Formulario -->
-      <form class="mt-10 space-y-4 text-left bg-gray-50 p-6 rounded-2xl shadow">
-        <div>
-          <label class="block mb-2 font-semibold">Nombre</label>
-          <input type="text" class="w-full p-3 rounded border border-gray-300 focus:ring-2 focus:ring-pink-500 outline-none" placeholder="Tu nombre" required>
-        </div>
-        <div>
-          <label class="block mb-2 font-semibold">Correo electrónico</label>
-          <input type="email" class="w-full p-3 rounded border border-gray-300 focus:ring-2 focus:ring-pink-500 outline-none" placeholder="tucorreo@example.com" required>
-        </div>
-        <div>
-          <label class="block mb-2 font-semibold">Mensaje</label>
-          <textarea class="w-full p-3 rounded border border-gray-300 focus:ring-2 focus:ring-pink-500 outline-none" rows="4" placeholder="Escribe tu mensaje aquí..." required></textarea>
-        </div>
-        <button type="submit" class="bg-pink-500 hover:bg-pink-600 text-white px-6 py-3 rounded-full font-bold w-full">Enviar mensaje</button>
-      </form>
-    </div>
-  </section>
-
-  <!-- Carrito en el encabezado -->
-<header class="bg-pink-600 text-white flex justify-between items-center px-6 py-4">
-  <h1 class="text-2xl font-bold">Squad Miribilla</h1>
-  <button id="cartButton" class="relative">
-    🛒
-    <span id="cartCount" class="absolute -top-2 -right-2 bg-white text-pink-600 text-xs px-2 py-0.5 rounded-full">0</span>
-  </button>
-</header>
-
-<!-- Sección tienda -->
-<section class="py-10 bg-gray-100 text-center">
-  <h2 class="text-3xl font-bold text-pink-600 mb-6">Tienda Oficial</h2>
-  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 px-6 max-w-6xl mx-auto">
-    
-    <!-- Producto 1 -->
-    <div class="bg-white p-4 rounded-2xl shadow">
-      <img src="equipacion_local.jpg" alt="Equipación Local" class="w-full h-48 object-cover rounded-lg mb-3">
-      <h3 class="font-semibold text-lg">Equipación Local 2025</h3>
-      <p class="text-pink-600 font-bold mb-2">25€</p>
-      <button onclick="addToCart('Equipación Local 2025', 25)" class="bg-pink-600 text-white px-4 py-2 rounded-full hover:bg-pink-700">Añadir al carrito</button>
-    </div>
-
-    <!-- Producto 2 -->
-    <div class="bg-white p-4 rounded-2xl shadow">
-      <img src="carnet_socio.jpg" alt="Carnet de Socio" class="w-full h-48 object-cover rounded-lg mb-3">
-      <h3 class="font-semibold text-lg">Carnet de Socio 2025</h3>
-      <p class="text-pink-600 font-bold mb-2">10€</p>
-      <button onclick="addToCart('Carnet de Socio 2025', 10)" class="bg-pink-600 text-white px-4 py-2 rounded-full hover:bg-pink-700">Añadir al carrito</button>
-    </div>
-
-    <!-- Producto 3 -->
-    <div class="bg-white p-4 rounded-2xl shadow">
-      <img src="bufanda.jpg" alt="Bufanda Oficial" class="w-full h-48 object-cover rounded-lg mb-3">
-      <h3 class="font-semibold text-lg">Bufanda Oficial</h3>
-      <p class="text-pink-600 font-bold mb-2">12€</p>
-      <button onclick="addToCart('Bufanda Oficial', 12)" class="bg-pink-600 text-white px-4 py-2 rounded-full hover:bg-pink-700">Añadir al carrito</button>
-    </div>
-  </div>
-</section>
-
-<!-- Modal del carrito -->
-<div id="cartModal" class="hidden fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center">
-  <div class="bg-white rounded-2xl p-6 w-96">
-    <h3 class="text-xl font-bold mb-4 text-pink-600">Tu carrito</h3>
-    <ul id="cartItems" class="text-gray-700 mb-4"></ul>
-    <p id="cartTotal" class="font-bold mb-4"></p>
-    <button onclick="checkout()" class="bg-pink-600 text-white px-4 py-2 rounded-full hover:bg-pink-700">Finalizar pedido</button>
-    <button onclick="closeCart()" class="ml-2 text-gray-600 underline">Cerrar</button>
-  </div>
-</div>
-
-<script>
-  let cart = [];
-
-  function addToCart(name, price) {
-    cart.push({ name, price });
-    document.getElementById('cartCount').innerText = cart.length;
-  }
-
-  document.getElementById('cartButton').addEventListener('click', openCart);
-
-  function openCart() {
-    document.getElementById('cartModal').classList.remove('hidden');
-    let itemsHTML = '';
-    let total = 0;
-    cart.forEach(item => {
-      itemsHTML += <li>${item.name} - ${item.price}€</li>;
-      total += item.price;
-    });
-    document.getElementById('cartItems').innerHTML = itemsHTML;
-    document.getElementById('cartTotal').innerText = 'Total: ' + total + '€';
-  }
-
-  function closeCart() {
-    document.getElementById('cartModal').classList.add('hidden');
-  }
-
-  function checkout() {
-    const total = cart.reduce((sum, item) => sum + item.price, 0);
-    const message = encodeURIComponent(`Hola Squad Miribilla 👋 Quiero hacer este pedido:\n${cart.map(i => - ${i.name} (${i.price}€)).join('\n')}\nTotal: ${total}€`);
-    window.open(https://wa.me/34641683104?text=${message}, '_blank');
-  }
-</script>
-  
-  <!-- Footer -->
-  <footer class="bg-black text-white py-8 text-center">
-    <p class="text-lg">&copy; 2025 Squad Miribilla · Todos los derechos reservados</p>
-    <p class="text-sm text-gray-400 mt-2">Desarrollado con ❤ desde Miribilla</p>
+  <!-- FOOTER -->
+  <footer class="bg-pink-600 text-white text-center py-4 mt-10">
+    © 2025 Squad Miribilla · Todos los derechos reservados
   </footer>
+
+  <!-- SCRIPT DEL CARRITO -->
+  <script>
+    let cart = [];
+
+    function addToCart(name, price) {
+      cart.push({ name, price });
+      document.getElementById('cartCount').innerText = cart.length;
+    }
+
+    document.getElementById('cartButton').addEventListener('click', openCart);
+
+    function openCart() {
+      const modal = document.getElementById('cartModal');
+      modal.classList.remove('hidden');
+
+      let itemsHTML = '';
+      let total = 0;
+      cart.forEach(item => {
+        itemsHTML += <li>${item.name} - ${item.price}€</li>;
+        total += item.price;
+      });
+
+      document.getElementById('cartItems').innerHTML = itemsHTML;
+      document.getElementById('cartTotal').innerText = 'Total: ' + total + '€';
+    }
+
+    function closeCart() {
+      document.getElementById('cartModal').classList.add('hidden');
+    }
+
+    function checkout() {
+      const total = cart.reduce((sum, item) => sum + item.price, 0);
+      const message = encodeURIComponent(
+        `Hola Squad Miribilla 👋 Quiero hacer este pedido:\n${cart.map(i => - ${i.name} (${i.price}€)).join('\n')}\nTotal: ${total}€`
+      );
+      window.open(https://wa.me/34641683104?text=${message}, '_blank');
+    }
+  </script>
 </body>
-
 </html>
-
-
-
-
