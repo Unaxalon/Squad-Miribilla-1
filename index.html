@@ -139,43 +139,110 @@
     © 2025 Squad Miribilla · Todos los derechos reservados
   </footer>
 
-  <!-- SCRIPT DEL CARRITO -->
-  <script>
-    let cart = [];
+ <!-- SCRIPT DEL CARRITO MEJORADO -->
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  // Carga inicial
+  let cart = JSON.parse(localStorage.getItem('sqm_cart') || '[]');
 
-    function addToCart(name, price) {
-      cart.push({ name, price });
-      document.getElementById('cartCount').innerText = cart.length;
+  const cartCountEl = document.getElementById('cartCount');
+  const cartModal = document.getElementById('cartModal');
+  const cartItemsEl = document.getElementById('cartItems');
+  const cartTotalEl = document.getElementById('cartTotal');
+
+  // Actualiza contador visual
+  function updateCount() {
+    if (cartCountEl) cartCountEl.innerText = cart.length;
+  }
+
+  // Función global para añadir al carrito (mantener compatibilidad con botones onclick)
+  window.addToCart = function (name, price) {
+    price = Number(price) || 0;
+    cart.push({ name: String(name), price: price });
+    localStorage.setItem('sqm_cart', JSON.stringify(cart));
+    updateCount();
+
+    // Pequeña animación visual cuando se añade algo
+    if (cartCountEl) {
+      cartCountEl.classList.add('transform', 'scale-110');
+      setTimeout(() => cartCountEl.classList.remove('scale-110'), 180);
+    }
+  };
+
+  // Abrir modal del carrito
+  function openCart() {
+    if (!cartModal || !cartItemsEl || !cartTotalEl) return;
+    cartModal.classList.remove('hidden');
+
+    if (cart.length === 0) {
+      cartItemsEl.innerHTML = '<li class="py-1">Tu carrito está vacío</li>';
+      cartTotalEl.innerText = 'Total: 0€';
+      return;
     }
 
-    document.getElementById('cartButton').addEventListener('click', openCart);
+    // Construir lista y total
+    let total = 0;
+    cartItemsEl.innerHTML = '';
+    cart.forEach((item, index) => {
+      total += Number(item.price);
+      const li = document.createElement('li');
+      li.className = 'py-1 flex items-center justify-between';
+      li.innerHTML = `<span><strong>${escapeHtml(item.name)}</strong> - ${Number(item.price)}€</span>
+                      <button data-remove="${index}" class="ml-4 text-sm text-red-600 hover:underline">Eliminar</button>`;
+      cartItemsEl.appendChild(li);
+    });
+    cartTotalEl.innerText = 'Total: ' + total + '€';
 
-    function openCart() {
-      const modal = document.getElementById('cartModal');
-      modal.classList.remove('hidden');
-
-      let itemsHTML = '';
-      let total = 0;
-      cart.forEach(item => {
-        itemsHTML += <li>${item.name} - ${item.price}€</li>;
-        total += item.price;
+    // Attacha listeners a botones eliminar
+    cartItemsEl.querySelectorAll('[data-remove]').forEach(btn => {
+      btn.addEventListener('click', function () {
+        const idx = Number(this.getAttribute('data-remove'));
+        if (!Number.isNaN(idx)) {
+          cart.splice(idx, 1);
+          localStorage.setItem('sqm_cart', JSON.stringify(cart));
+          updateCount();
+          openCart(); // refresca vista
+        }
       });
+    });
+  }
 
-      document.getElementById('cartItems').innerHTML = itemsHTML;
-      document.getElementById('cartTotal').innerText = 'Total: ' + total + '€';
-    }
+  // Exponer cerrar y checkout globalmente porque los botones usan onclick
+  window.closeCart = function () {
+    if (cartModal) cartModal.classList.add('hidden');
+  };
 
-    function closeCart() {
-      document.getElementById('cartModal').classList.add('hidden');
+  window.checkout = function () {
+    if (cart.length === 0) {
+      alert('Tu carrito está vacío.');
+      return;
     }
+    const total = cart.reduce((s, i) => s + Number(i.price), 0);
+    const lines = cart.map(i => - ${i.name} (${i.price}€)).join('\n');
 
-    function checkout() {
-      const total = cart.reduce((sum, item) => sum + item.price, 0);
-      const message = encodeURIComponent(
-        `Hola Squad Miribilla 👋 Quiero hacer este pedido:\n${cart.map(i => - ${i.name} (${i.price}€)).join('\n')}\nTotal: ${total}€`
-      );
-      window.open(https://wa.me/34641683104?text=${message}, '_blank');
-    }
-  </script>
+    // CAMBIA aqui tu número de WhatsApp sin espacios ni signos: ejemplo 346XXXXXXXXX
+    const waNumber = '34641683104';
+    const message = encodeURIComponent(Hola Squad Miribilla 👋 Quiero hacer este pedido:\n${lines}\nTotal: ${total}€);
+    window.open(https://wa.me/${waNumber}?text=${message}, '_blank');
+  };
+
+  // Conectar botón del header (si existe)
+  const cartButton = document.getElementById('cartButton');
+  if (cartButton) cartButton.addEventListener('click', openCart);
+
+  updateCount();
+
+  // pequeño helper para evitar inyección al generar HTML
+  function escapeHtml(unsafe) {
+    return String(unsafe)
+      .replace(/&/g, "&amp;")
+      .replace(/</g, "&lt;")
+      .replace(/>/g, "&gt;")
+      .replace(/"/g, "&quot;")
+      .replace(/'/g, "&#039;");
+  }
+});
+</script>
 </body>
 </html>
+
