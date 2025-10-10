@@ -104,22 +104,12 @@
     © 2025 Squad Miribilla · Todos los derechos reservados
   </footer>
 
-<!-- Header -->
-  <header class="bg-pink-600 text-white py-4 shadow">
-    <div class="container mx-auto px-6 flex items-center justify-between">
-      <div class="flex items-center gap-4">
-        <img src="escudo.png" alt="Escudo" class="w-12 h-12 rounded-full border-2 border-white object-cover">
-        <h1 class="text-2xl font-bold">Squad Miribilla</h1>
-      </div>
-
-      <!-- Carrito icon -->
-      <button id="cartButton" class="relative bg-white text-pink-600 px-3 py-2 rounded-full hover:bg-pink-100">
-        <span class="sr-only">Abrir carrito</span>
-        🛒
-        <span id="cartCount" class="absolute -top-2 -right-2 bg-pink-600 text-white text-xs px-2 py-0.5 rounded-full">0</span>
-      </button>
-    </div>
-  </header>
+<header class="bg-pink-600 text-white py-4 text-center">
+  <a href="https://wa.me/34641683104" target="_blank" class="text-2xl font-bold flex justify-center items-center gap-2 hover:underline">
+    Haz tu pedido
+    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" class="w-6 h-6">
+  </a>
+</header>
 
   <!-- Main -->
   <main class="container mx-auto px-6 py-10">
@@ -134,7 +124,6 @@
           <img src="uniforme_local.png" alt="Equipación Local" class="mx-auto h-40 object-contain mb-4">
           <h3 class="nombre font-semibold">Equipación Local 2025</h3>
           <p class="precio text-pink-600 font-bold">25</p>
-          <button class="mt-4 add-button bg-pink-600 text-white px-4 py-2 rounded-full" data-name="Equipación Local 2025" data-price="25">Añadir al carrito</button>
         </div>
 
         <!-- Producto 2 -->
@@ -142,7 +131,6 @@
           <img src="carnet.png" alt="Carnet de socio" class="mx-auto h-40 object-contain mb-4">
           <h3 class="nombre font-semibold">Carnet de Socio 2025</h3>
           <p class="precio text-pink-600 font-bold">10</p>
-          <button class="mt-4 add-button bg-pink-600 text-white px-4 py-2 rounded-full" data-name="Carnet de Socio 2025" data-price="10">Añadir al carrito</button>
         </div>
 
         <!-- Producto 3 -->
@@ -150,26 +138,12 @@
           <img src="bufanda.png" alt="Bufanda" class="mx-auto h-40 object-contain mb-4">
           <h3 class="nombre font-semibold">Bufanda Oficial</h3>
           <p class="precio text-pink-600 font-bold">12</p>
-          <button class="mt-4 add-button bg-pink-600 text-white px-4 py-2 rounded-full" data-name="Bufanda Oficial" data-price="12">Añadir al carrito</button>
         </div>
       </div>
     </section>
 
   </main>
 
-  <!-- Carrito modal (hidden por defecto) -->
-  <div id="cartModal" class="hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
-    <div class="bg-white rounded-2xl w-11/12 md:w-96 p-6">
-      <h3 class="text-xl font-bold text-pink-600 mb-4">🛒 Tu carrito</h3>
-      <ul id="cartItems" class="mb-4 list-disc list-inside text-gray-800"></ul>
-      <p id="cartTotal" class="font-bold mb-4">Total: 0€</p>
-
-      <div class="flex gap-3">
-        <button onclick="checkout()" class="flex-1 bg-pink-600 text-white py-2 rounded-full">Finalizar pedido</button>
-        <button onclick="closeCart()" class="flex-1 border border-gray-300 py-2 rounded-full">Cerrar</button>
-      </div>
-    </div>
-  </div>
 
   <!-- Footer -->
   <footer class="bg-gray-900 text-white text-center py-4 mt-12">
@@ -304,6 +278,7 @@ window.open(¨https://wa.me/${waNumber}?text=${message}¨, '_blank');
 
 </body>
 </html>
+
 
 
 
