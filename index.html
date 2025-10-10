@@ -4,41 +4,56 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="Página oficial de Squad Miribilla, club de fútbol amateur de Miribilla (Bilbao, España)" />
-  <title>Squad Miribilla  | Orgullo de Barrio</title>
+  <title>Squad Miribilla | Orgullo de Barrio</title>
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
 
 <body class="bg-white text-gray-900 font-sans">
 
   <!-- ENCABEZADO -->
-  <header class="bg-pink-600 text-white py-5 shadow-lg">
-    <div class="container mx-auto flex items-center justify-between px-6">
-      <div class="flex items-center space-x-4">
-        <img src="escudo.png" alt="Escudo Squad Miribilla" class="w-14 h-14 rounded-full border-2 border-white object-cover" />
-        <h1 class="text-3xl font-bold">Squad Miribilla</h1>
+  <header class="bg-pink-600 text-white py-4 shadow-lg sticky top-0 z-50">
+    <div class="container mx-auto flex flex-col md:flex-row items-center justify-between px-6">
+      <div class="flex items-center space-x-4 mb-2 md:mb-0">
+        <img src="escudo.png" alt="Escudo Squad Miribilla" class="w-12 h-12 rounded-full border-2 border-white object-cover" />
+        <h1 class="text-2xl font-bold">Squad Miribilla</h1>
       </div>
 
+      <nav class="flex space-x-6 text-lg font-semibold">
+        <a href="#asociacion" class="hover:underline">Asociación Miribilla</a>
+        <a href="#jugadores" class="hover:underline">Jugadores</a>
+        <a href="#tienda" class="hover:underline">Tienda</a>
+      </nav>
+
+      <a href="https://wa.me/34641683104" target="_blank"
+         class="bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded-full flex items-center gap-2 mt-3 md:mt-0 transition">
+        <span>📲 Haz tu pedido</span>
+      </a>
+    </div>
+  </header>
+
   <!-- HISTORIA -->
-  <section class="container mx-auto px-6 py-10">
-    <h2 class="text-2xl font-bold text-pink-600 mb-4">Historia</h2>
-    <p>
-      Squad Miribilla es un club de fútbol amateur del barrio de Miribilla, Bilbao. Fundado el 7 de septiembre de 2023 por un grupo de amigos, 
-      el club ha crecido progresivamente hasta convertirse en un referente deportivo y social del barrio.
+  <section class="container mx-auto px-6 py-12" id="historia">
+    <h2 class="text-3xl font-bold text-pink-600 mb-4">Nuestra Historia</h2>
+    <p class="text-lg leading-relaxed">
+      Squad Miribilla es un club de fútbol amateur del barrio de Miribilla, Bilbao. 
+      Fundado el <strong>7 de septiembre de 2023</strong> por un grupo de amigos, el club ha crecido hasta convertirse 
+      en un referente deportivo y social del barrio. 
+      Con esfuerzo, pasión y orgullo de barrio, el equipo representa los valores de unión, respeto y competitividad.
     </p>
   </section>
 
   <!-- ASOCIACIÓN MIRIBILLA -->
-  <section class="container mx-auto px-6 py-10 bg-pink-50 rounded-xl">
-    <h2 class="text-2xl font-bold text-pink-600 mb-4">Asociación Miribilla</h2>
-    <p>
+  <section class="container mx-auto px-6 py-12 bg-pink-50 rounded-xl" id="asociacion">
+    <h2 class="text-3xl font-bold text-pink-600 mb-4">Asociación Miribilla</h2>
+    <p class="text-lg leading-relaxed">
       Squad Miribilla forma parte de la Asociación Miribilla, una organización que promueve el fútbol amateur y la convivencia deportiva 
       entre clubes locales. Alterna entre dos torneos principales: la <b>Copa Miribilla</b> y la <b>Liga A.M.</b>
     </p>
   </section>
 
   <!-- JUGADORES -->
-  <section class="container mx-auto px-6 py-10">
-    <h2 class="text-2xl font-bold text-pink-600 mb-4">Jugadores</h2>
+  <section class="container mx-auto px-6 py-12" id="jugadores">
+    <h2 class="text-3xl font-bold text-pink-600 mb-6">Plantilla Oficial</h2>
     <table class="table-auto w-full text-left border border-gray-300">
       <thead class="bg-pink-600 text-white">
         <tr>
@@ -59,223 +74,59 @@
         <tr><td>16</td><td>Mikel Valente Gorostiza</td><td>Valente</td><td>Delantero</td></tr>
         <tr><td>19</td><td>Unax Alonso García</td><td>Teddy</td><td>Delantero / Capitán</td></tr>
         <tr><td>20</td><td>Aimar Fernández Díaz de Alda</td><td>Aimar</td><td>Delantero</td></tr>
-        <tr><td>32</td><td>Yovanny José Henríquez Mora</td><td>Yovanny</td><td>Centra</td></tr>
+        <tr><td>32</td><td>Yovanny José Henríquez Mora</td><td>Yovanny</td><td>Central</td></tr>
       </tbody>
     </table>
   </section>
 
-  
+  <!-- PARTIDOS Y RESULTADOS -->
+  <section class="container mx-auto px-6 py-16" id="resultados">
+    <h2 class="text-3xl font-bold text-pink-600 mb-6 text-center">📅 Próximos Partidos y Resultados</h2>
+    <div class="bg-white shadow-xl rounded-2xl overflow-hidden">
+      <iframe
+        src="https://equipea.es/squadmiribilla"
+        width="100%"
+        height="700"
+        style="border:0;"
+        allowfullscreen
+        loading="lazy">
+      </iframe>
+    </div>
+    <p class="text-center text-gray-600 mt-4">
+      Información actualizada por 
+      <a href="https://equipea.com" target="_blank" class="text-pink-600 hover:underline">Equipea</a>
+    </p>
+  </section>
 
-  <!-- Sección de próximos partidos y resultados -->
-<section class="container mx-auto px-6 py-16">
-  <h2 class="text-3xl font-bold text-pink-600 mb-6 text-center">
-    📅 Próximos Partidos y Resultados
-  </h2>
+  <!-- TIENDA -->
+  <section class="container mx-auto px-6 py-16" id="tienda">
+    <h2 class="text-3xl font-bold text-pink-600 mb-8 text-center">🛍 Tienda Oficial</h2>
 
-  <div class="bg-white shadow-xl rounded-2xl overflow-hidden">
-    <!-- Vista previa de la página de Equipea -->
-    <iframe 
-      src="https://equipea.es/squadmiribilla" 
-      width="100%" 
-      height="700" 
-      style="border:0;" 
-      allowfullscreen 
-      loading="lazy">
-    </iframe>
-  </div>
+    <div class="grid gap-6 md:grid-cols-3">
+      <div class="product-card bg-white rounded-2xl shadow p-6 text-center">
+        <img src="uniforme_local.png" alt="Equipación Local" class="mx-auto h-40 object-contain mb-4">
+        <h3 class="font-semibold">Equipación Local 2025</h3>
+        <p class="text-pink-600 font-bold">25€</p>
+      </div>
 
-  <p class="text-center text-gray-600 mt-4">
-    Información actualizada por 
-    <a href="https://equipea.com" target="_blank" class="text-pink-600 hover:underline">
-      Equipea
-    </a>
-  </p>
-</section>
+      <div class="product-card bg-white rounded-2xl shadow p-6 text-center">
+        <img src="carnet.png" alt="Carnet de socio" class="mx-auto h-40 object-contain mb-4">
+        <h3 class="font-semibold">Carnet de Socio 2025</h3>
+        <p class="text-pink-600 font-bold">10€</p>
+      </div>
+
+      <div class="product-card bg-white rounded-2xl shadow p-6 text-center">
+        <img src="bufanda.png" alt="Bufanda" class="mx-auto h-40 object-contain mb-4">
+        <h3 class="font-semibold">Bufanda Oficial</h3>
+        <p class="text-pink-600 font-bold">12€</p>
+      </div>
+    </div>
+  </section>
 
   <!-- FOOTER -->
-  <footer class="bg-pink-600 text-white text-center py-4 mt-10">
+  <footer class="bg-gray-900 text-white text-center py-6 mt-12">
     © 2025 Squad Miribilla · Todos los derechos reservados
   </footer>
 
-<header class="bg-pink-600 text-white py-4 text-center">
-  <a href="https://wa.me/34641683104" target="_blank" class="text-2xl font-bold flex justify-center items-center gap-2 hover:underline">
-    Haz tu pedido
-    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" class="w-6 h-6">
-  </a>
-</header>
-
-  <!-- Main -->
-  <main class="container mx-auto px-6 py-10">
-
-    <!-- Tienda -->
-    <section id="tienda" class="mb-12">
-      <h2 class="text-3xl font-bold text-pink-600 mb-6 text-center">Tienda Oficial</h2>
-
-      <div class="grid gap-6 md:grid-cols-3">
-        <!-- Producto 1 -->
-        <div class="product-card bg-white rounded-2xl shadow p-6 text-center">
-          <img src="uniforme_local.png" alt="Equipación Local" class="mx-auto h-40 object-contain mb-4">
-          <h3 class="nombre font-semibold">Equipación Local 2025</h3>
-          <p class="precio text-pink-600 font-bold">25</p>
-        </div>
-
-        <!-- Producto 2 -->
-        <div class="product-card bg-white rounded-2xl shadow p-6 text-center">
-          <img src="carnet.png" alt="Carnet de socio" class="mx-auto h-40 object-contain mb-4">
-          <h3 class="nombre font-semibold">Carnet de Socio 2025</h3>
-          <p class="precio text-pink-600 font-bold">10</p>
-        </div>
-
-        <!-- Producto 3 -->
-        <div class="product-card bg-white rounded-2xl shadow p-6 text-center">
-          <img src="bufanda.png" alt="Bufanda" class="mx-auto h-40 object-contain mb-4">
-          <h3 class="nombre font-semibold">Bufanda Oficial</h3>
-          <p class="precio text-pink-600 font-bold">12</p>
-        </div>
-      </div>
-    </section>
-
-  </main>
-
-
-  <!-- Footer -->
-  <footer class="bg-gray-900 text-white text-center py-4 mt-12">
-    © 2025 Squad Miribilla
-  </footer>
-
-  <!-- Script del carrito (inline para evitar problemas de carga) -->
-  <script>
-    (function () {
-      // Evitar que algo tarde en cargarse: ejecutar cuando DOM listo
-      document.addEventListener('DOMContentLoaded', function () {
-        // Estado del carrito (persistido en localStorage)
-        const STORAGE_KEY = 'sqm_cart_v1';
-        let cart = JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]');
-
-        // Elementos principales
-        const cartCountEl = document.getElementById('cartCount');
-        const cartModal = document.getElementById('cartModal');
-        const cartItemsEl = document.getElementById('cartItems');
-        const cartTotalEl = document.getElementById('cartTotal');
-        const cartButton = document.getElementById('cartButton');
-
-        // Exponer funciones globales (para botones inline)
-        window.addToCart = function (name, price) {
-          price = Number(price) || 0;
-          cart.push({ name: String(name), price: price });
-          localStorage.setItem(STORAGE_KEY, JSON.stringify(cart));
-          updateCount();
-          // pequeña animación de feedback:
-          if (cartCountEl) {
-            cartCountEl.classList.add('animate-pulse');
-            setTimeout(() => cartCountEl.classList.remove('animate-pulse'), 300);
-          }
-        };
-
-        window.closeCart = function () {
-          if (cartModal) cartModal.classList.add('hidden');
-        };
-
-        window.checkout = function () {
-          if (cart.length === 0) {
-            alert('Tu carrito está vacío.');
-            return;
-          }
-          const total = cart.reduce((s, i) => s + Number(i.price), 0);
-          const lines = cart.map(i => - ${i.name} (${i.price}€)).join('\n');
-
-          // CAMBIA el número por tu WhatsApp (sin + ni espacios), ejemplo 34612345678
-          const waNumber = '34641683104';
-          const message = encodeURIComponent(Hola Squad Miribilla 👋 Quiero hacer este pedido:\n${lines}\nTotal: ${total}€);
-window.open(¨https://wa.me/${waNumber}?text=${message}¨, '_blank');
-        };
-
-        // Actualiza contador visual
-        function updateCount() {
-          if (!cartCountEl) return;
-          cartCountEl.innerText = cart.length;
-        }
-
-        // Renderiza items en el modal
-        function renderCart() {
-          if (!cartItemsEl || !cartTotalEl) return;
-          cartItemsEl.innerHTML = '';
-          if (cart.length === 0) {
-            cartItemsEl.innerHTML = '<li class="py-1">Tu carrito está vacío.</li>';
-            cartTotalEl.innerText = 'Total: 0€';
-            return;
-          }
-          let total = 0;
-          cart.forEach((item, idx) => {
-            total += Number(item.price);
-            const li = document.createElement('li');
-            li.className = 'py-1 flex justify-between items-center';
-            li.innerHTML = `<span><strong>${escapeHtml(item.name)}</strong> - ${Number(item.price)}€</span>
-                            <button data-idx="${idx}" class="text-sm text-red-600 hover:underline ml-3">Eliminar</button>`;
-            cartItemsEl.appendChild(li);
-          });
-          cartTotalEl.innerText = 'Total: ' + total + '€';
-
-          // listeners eliminar
-          cartItemsEl.querySelectorAll('[data-idx]').forEach(btn => {
-            btn.addEventListener('click', function () {
-              const idx = Number(this.getAttribute('data-idx'));
-              if (!Number.isNaN(idx)) {
-                cart.splice(idx, 1);
-                localStorage.setItem(STORAGE_KEY, JSON.stringify(cart));
-                updateCount();
-                renderCart();
-              }
-            });
-          });
-        }
-
-        // abrir carrito
-        window.openCart = function () {
-          if (!cartModal) return;
-          renderCart();
-          cartModal.classList.remove('hidden');
-        };
-
-        // conectar el botón del header
-        if (cartButton) {
-          cartButton.addEventListener('click', function () {
-            openCart();
-          });
-        }
-
-        // conectar botones de productos (delegación)
-        document.querySelectorAll('.add-button').forEach(btn => {
-          btn.addEventListener('click', function () {
-            const name = this.getAttribute('data-name') || this.closest('.product-card')?.querySelector('.nombre')?.innerText || 'Producto';
-            const price = Number(this.getAttribute('data-price') || this.closest('.product-card')?.querySelector('.precio')?.innerText || 0);
-            window.addToCart(name, price);
-          });
-        });
-
-        // Escuchar ESC para cerrar modal
-        document.addEventListener('keydown', function (e) {
-          if (e.key === 'Escape') closeCart();
-        });
-
-        // helper safe
-        function escapeHtml(unsafe) {
-          return String(unsafe).replaceAll('&','&amp;').replaceAll('<','&lt;').replaceAll('>','&gt;').replaceAll('"','&quot;').replaceAll("'",'&#039;');
-        }
-
-        // init
-        updateCount();
-      });
-    })();
-<script src="script.js"></script>
-
 </body>
 </html>
-
-
-
-
-
-
-
-
