@@ -1,125 +1,273 @@
-<!DOCTYPE html>
+<!--
+Tienda web estática (index.html)
+Incluye: HTML + CSS + JS en un solo archivo.
+Cómo usar:
+1. Crea un repositorio en GitHub (público o privado).
+2. Añade este archivo como index.html en la rama main.
+3. Ve a Settings -> Pages -> Elige la rama main / carpeta / (root) -> Save.
+   GitHub Pages publicará tu sitio en https://<tu-usuario>.github.io/<tu-repo>/ en unos minutos.
+
+Personaliza productos en el array products dentro de <script>.
+-->
+
+<!doctype html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Squad Miribilla Fútbol Club</title>
-    <link rel="stylesheet" href="css/style.css">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Tienda demo - GitHub Pages</title>
+  <meta name="description" content="Tienda web estática con carrito (localStorage) - lista para GitHub Pages" />
+  <style>
+    :root{--accent:#2563eb;--bg:#f7f7fb;--card:#ffffff;--muted:#6b7280}
+    *{box-sizing:border-box}
+    body{font-family:Inter, system-ui, -apple-system, 'Segoe UI', Roboto, Arial; margin:0; background:var(--bg); color:#111}
+    header{background:linear-gradient(90deg,#111827 0%, #1f2937 100%); color:#fff; padding:20px}
+    .container{max-width:1100px;margin:20px auto;padding:0 16px}
+    .brand{display:flex;gap:12px;align-items:center}
+    .logo{width:44px;height:44px;background:linear-gradient(135deg,var(--accent),#7c3aed);border-radius:8px;display:inline-flex;align-items:center;justify-content:center;font-weight:700;color:#fff}
+    h1{font-size:20px;margin:0}
+    .top{display:flex;justify-content:space-between;align-items:center;margin-top:12px}
+
+    /* layout */
+    .main{display:grid;grid-template-columns:1fr 340px;gap:20px;margin-top:18px}
+    @media (max-width:880px){.main{grid-template-columns:1fr} .cart{order:2}}
+
+    /* product grid */
+    .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+    @media (max-width:980px){.grid{grid-template-columns:repeat(2,1fr)}}
+    @media (max-width:560px){.grid{grid-template-columns:1fr}}
+    .card{background:var(--card);padding:12px;border-radius:12px;box-shadow:0 6px 18px rgba(15,23,42,0.06);display:flex;flex-direction:column}
+    .card img{width:100%;height:160px;object-fit:cover;border-radius:8px}
+    .card h3{margin:10px 0 6px;font-size:16px}
+    .price{font-weight:700}
+    .muted{color:var(--muted);font-size:13px}
+    .actions{margin-top:auto;display:flex;gap:8px}
+    button{cursor:pointer;border:0;padding:8px 10px;border-radius:8px}
+    .btn-primary{background:var(--accent);color:#fff}
+    .btn-ghost{background:transparent;border:1px solid #e6e7ee}
+
+    /* cart */
+    .cart{background:linear-gradient(180deg, #fff, #fbfbff);padding:16px;border-radius:12px;height:100%;position:sticky;top:24px}
+    .cart h3{margin:0 0 8px}
+    .cart-list{max-height:420px;overflow:auto;margin-bottom:12px}
+    .cart-item{display:flex;gap:12px;align-items:center;padding:8px;border-radius:8px}
+    .cart-item img{width:56px;height:48px;object-fit:cover;border-radius:6px}
+    .qty{display:flex;gap:6px;align-items:center}
+    .totals{border-top:1px dashed #e6e7ee;padding-top:12px}
+
+    /* search / filters */
+    .controls{display:flex;gap:12px;align-items:center}
+    input[type=search]{padding:8px;border-radius:8px;border:1px solid #e6e7ee;width:220px}
+    select{padding:8px;border-radius:8px;border:1px solid #e6e7ee}
+
+    footer{max-width:1100px;margin:28px auto;text-align:center;color:var(--muted)}
+
+    /* small helpers */
+    .badge{background:#eef2ff;color:#3730a3;padding:4px 8px;border-radius:999px;font-size:12px}
+    .empty{padding:24px;text-align:center;color:var(--muted)}
+  </style>
 </head>
 <body>
-    <!-- Header / Menú -->
-    <header>
-        <nav>
-            <ul>
-                <li><a href="#home">Inicio</a></li>
-                <li><a href="#historia">Historia</a></li>
-                <li><a href="#jugadores">Jugadores</a></li>
-                <li><a href="#competicion">Competición</a></li>
-                <li><a href="#escudo">Escudo & Uniformes</a></li>
-                <li><a href="#tienda">Tienda</a></li>
-                <li><a href="#contacto">Contacto</a></li>
-            </ul>
-        </nav>
-    </header>
-
-    <!-- Home -->
-    <section id="home" class="section-home">
-        <img src="images/escudo.png" alt="Escudo Squad Miribilla" class="escudo">
-        <h1>Squad Miribilla Fútbol Club</h1>
-        <p>Squad Miribilla es un club de fútbol amateur de Miribilla, Bilbao, fundado el 7 de septiembre de 2023. Con pasión, compañerismo y compromiso vecinal, el equipo se ha consolidado como referente local en torneos y competiciones de la Asociación Miribilla.</p>
-    </section>
-
-    <!-- Historia -->
-    <section id="historia" class="section">
-        <h2>Historia</h2>
-        <ul>
-            <li><strong>2023:</strong> Fundación como SQUAD RANDOM</li>
-            <li><strong>2024:</strong> Cambio a SQUAD RANDOM MIRIBILLA</li>
-            <li><strong>2024:</strong> Primer partido amistoso y primera victoria</li>
-            <li><strong>2024:</strong> Creación del filial MIRIBILLAKO JENDEA</li>
-            <li><strong>2025:</strong> Cambio de nombre definitivo a SQUAD MIRIBILLA</li>
-            <li><strong>2024:</strong> Campeón de la Copa Miribilla</li>
-        </ul>
-    </section>
-
-    <!-- Jugadores -->
-    <section id="jugadores" class="section">
-        <h2>Jugadores</h2>
-        <table>
-            <thead>
-                <tr>
-                    <th>N.º</th>
-                    <th>Nombre</th>
-                    <th>Apodo</th>
-                    <th>Posición</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr><td>1</td><td>Juan Camilo Quevedo Puerta</td><td>Juan</td><td>Guardameta</td></tr>
-                <tr><td>5</td><td>Edixon Danovis Rincón Blanco</td><td>Danovis</td><td>Medio centro</td></tr>
-                <tr><td>7</td><td>Ibai Martínez Rodríguez</td><td>Ibi</td><td>Medio centro</td></tr>
-                <tr><td>10</td><td>Iker Vicente Bermejo Vicente</td><td>Vicente</td><td>Carrilero / Capitán</td></tr>
-                <tr><td>11</td><td>Lukas Eguren Cabanes</td><td>Luka</td><td>Delantero</td></tr>
-                <tr><td>19</td><td>Unax Alonso García</td><td>Teddy</td><td>Delantero / Capitán</td></tr>
-            </tbody>
-        </table>
-    </section>
-
-    <!-- Competición -->
-    <section id="competicion" class="section">
-        <h2>Competición</h2>
-        <p>Última temporada 2025/2026:</p>
-        <ul>
-            <li><strong>Copa Miribilla:</strong> Campeón</li>
-            <li><strong>Liga A.M.:</strong> 5º puesto</li>
-        </ul>
-    </section>
-
-    <!-- Escudo & Uniformes -->
-    <section id="escudo" class="section">
-        <h2>Escudo & Uniformes</h2>
-        <img src="images/equipacion_local.png" alt="Uniforme Local" class="uniforme">
-        <img src="images/equipacion_visitante.png" alt="Uniforme Visitante" class="uniforme">
-        <img src="images/equipacion_tercera.png" alt="Tercera Equipación" class="uniforme">
-        <p>Colores oficiales: Rosa, blanco, negro y azul.</p>
-    </section>
-
-    <!-- Tienda -->
-    <section id="tienda" class="section">
-        <h2>Tienda Oficial</h2>
-        <div class="productos">
-            <div class="producto">
-                <img src="images/equipacion_local.png" alt="Camiseta Local">
-                <p>Camiseta Local</p>
-                <button>Comprar</button>
-            </div>
-            <div class="producto">
-                <img src="images/equipacion_visitante.png" alt="Camiseta Visitante">
-                <p>Camiseta Visitante</p>
-                <button>Comprar</button>
-            </div>
-            <div class="producto">
-                <img src="images/equipacion_tercera.png" alt="Tercera Equipación">
-                <p>Tercera Equipación</p>
-                <button>Comprar</button>
-            </div>
+  <header>
+    <div class="container">
+      <div class="brand">
+        <div class="logo">T</div>
+        <div>
+          <h1>Tienda demo</h1>
+          <div class="muted">Estática • Carrito en localStorage • Lista para GitHub Pages</div>
         </div>
-    </section>
+      </div>
+    </div>
+  </header>
 
-    <!-- Contacto -->
-    <section id="contacto" class="section">
-        <h2>Contacto</h2>
-        <p>Dirección: Estadio Berriotxoa, C/ Marcelino Menéndez y Pelayo 25, Bilbao</p>
-        <form>
-            <input type="text" placeholder="Nombre" required>
-            <input type="email" placeholder="Correo electrónico" required>
-            <textarea placeholder="Mensaje" required></textarea>
-            <button type="submit">Enviar</button>
+  <main class="container">
+    <div class="top">
+      <div class="controls">
+        <input id="search" type="search" placeholder="Buscar productos..." />
+        <select id="sort">
+          <option value="default">Orden: Recomendado</option>
+          <option value="price-asc">Precio: menor a mayor</option>
+          <option value="price-desc">Precio: mayor a menor</option>
+        </select>
+        <div class="badge" id="products-count">0 productos</div>
+      </div>
+      <div class="muted">Entrega ficticia • Pago no real</div>
+    </div>
+
+    <div class="main">
+      <section>
+        <div id="products" class="grid"></div>
+      </section>
+
+      <aside class="cart">
+        <h3>Carrito</h3>
+        <div class="cart-list" id="cart-list"></div>
+        <div class="totals">
+          <div style="display:flex;justify-content:space-between"><div>Subtotal</div><div id="subtotal">€0.00</div></div>
+          <div style="display:flex;justify-content:space-between;margin-top:8px"><div>Envío</div><div id="shipping">€5.00</div></div>
+          <div style="display:flex;justify-content:space-between;font-weight:700;margin-top:10px"><div>Total</div><div id="total">€0.00</div></div>
+          <div style="margin-top:12px">
+            <button id="checkout" class="btn-primary" style="width:100%">Finalizar compra</button>
+          </div>
+        </div>
+        <div style="margin-top:12px;color:var(--muted);font-size:13px">Los datos quedan en tu navegador. Para recibir pago real necesitas integrar una pasarela (Stripe, PayPal, etc.).</div>
+      </aside>
+    </div>
+
+    <!-- checkout modal -->
+    <div id="modal" style="display:none;position:fixed;inset:0;background:rgba(1,1,1,0.4);align-items:center;justify-content:center">
+      <div style="background:#fff;border-radius:12px;padding:18px;max-width:520px;margin:24px">
+        <h3>Finalizar compra</h3>
+        <form id="checkout-form">
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px">
+            <input name="name" placeholder="Nombre completo" required />
+            <input name="email" type="email" placeholder="Correo electrónico" required />
+          </div>
+          <input name="address" placeholder="Dirección de envío" style="margin-top:8px" required />
+          <div style="display:flex;gap:8px;margin-top:12px">
+            <button type="submit" class="btn-primary">Pagar (simulado)</button>
+            <button type="button" id="cancel" class="btn-ghost">Cancelar</button>
+          </div>
         </form>
-    </section>
+      </div>
+    </div>
 
-    <footer>
-        <p>&copy; 2025 Squad Miribilla FC | Todos los derechos reservados</p>
-    </footer>
+  </main>
+
+  <footer>
+    <div class="container">Plantilla gratuita — Personalízala y súbela a GitHub</div>
+  </footer>
+
+  <script>
+    // Datos de ejemplo: modifica a gusto.
+    const products = [
+      {id:1, title:'Camiseta clásica', price:19.99, img:'https://via.placeholder.com/600x400?text=Camiseta'},
+      {id:2, title:'Sudadera con capucha', price:39.99, img:'https://via.placeholder.com/600x400?text=Sudadera'},
+      {id:3, title:'Gorra ajustable', price:14.50, img:'https://via.placeholder.com/600x400?text=Gorra'},
+      {id:4, title:'Mochila urbana', price:59.00, img:'https://via.placeholder.com/600x400?text=Mochila'},
+      {id:5, title:'Auriculares inalámbricos', price:89.90, img:'https://via.placeholder.com/600x400?text=Auriculares'},
+      {id:6, title:'Taza cerámica', price:9.50, img:'https://via.placeholder.com/600x400?text=Taza'}
+    ];
+
+    // Estado
+    let state = {
+      products: [...products],
+      cart: JSON.parse(localStorage.getItem('cart_v1')||'{}')
+    };
+
+    // Util
+    const fmt = v => '€'+v.toFixed(2);
+
+    // Render products
+    function renderProducts(){
+      const container = document.getElementById('products');
+      const count = document.getElementById('products-count');
+      container.innerHTML = '';
+      state.products.forEach(p=>{
+        const el = document.createElement('div'); el.className='card';
+        el.innerHTML = `
+          <img src="${p.img}" alt="${p.title}"/>
+          <h3>${p.title}</h3>
+          <div class="muted">Descripción breve del producto</div>
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-top:10px">
+            <div class="price">${fmt(p.price)}</div>
+            <div class="actions">
+              <button class="btn-ghost" data-id="${p.id}">Ver</button>
+              <button class="btn-primary" data-add="${p.id}">Añadir</button>
+            </div>
+          </div>`;
+        container.appendChild(el);
+      });
+      count.textContent = state.products.length + ' productos';
+    }
+
+    // Cart
+    function saveCart(){ localStorage.setItem('cart_v1', JSON.stringify(state.cart)); }
+    function addToCart(id){
+      const k = String(id);
+      if(state.cart[k]) state.cart[k].qty++;
+      else{
+        const p = products.find(x=>x.id===id);
+        state.cart[k] = {id:p.id,title:p.title,price:p.price,img:p.img,qty:1};
+      }
+      saveCart(); renderCart();
+    }
+    function removeFromCart(id){ delete state.cart[String(id)]; saveCart(); renderCart(); }
+    function changeQty(id,delta){ const k=String(id); if(!state.cart[k]) return; state.cart[k].qty += delta; if(state.cart[k].qty<1) delete state.cart[k]; saveCart(); renderCart(); }
+
+    function renderCart(){
+      const list = document.getElementById('cart-list'); list.innerHTML='';
+      const keys = Object.keys(state.cart);
+      if(keys.length===0){ list.innerHTML = '<div class="empty">Tu carrito está vacío</div>'; document.getElementById('subtotal').textContent='€0.00'; document.getElementById('total').textContent='€0.00'; return; }
+      let subtotal = 0;
+      keys.forEach(k=>{
+        const it = state.cart[k]; subtotal += it.price * it.qty;
+        const div = document.createElement('div'); div.className='cart-item';
+        div.innerHTML = `
+          <img src="${it.img}" alt="${it.title}" />
+          <div style="flex:1">
+            <div>${it.title}</div>
+            <div class="muted">${fmt(it.price)} x ${it.qty}</div>
+          </div>
+          <div class="qty">
+            <button data-dec="${it.id}">−</button>
+            <div>${it.qty}</div>
+            <button data-inc="${it.id}">+</button>
+            <button data-rm="${it.id}" style="margin-left:8px">✕</button>
+          </div>`;
+        list.appendChild(div);
+      });
+      const shipping = subtotal > 0 ? 5.00 : 0;
+      document.getElementById('subtotal').textContent = fmt(subtotal);
+      document.getElementById('shipping').textContent = fmt(shipping);
+      document.getElementById('total').textContent = fmt(subtotal + shipping);
+    }
+
+    // Events
+    document.addEventListener('click', e=>{
+      const add = e.target.closest('[data-add]'); if(add){ addToCart(Number(add.dataset.add)); return; }
+      const inc = e.target.closest('[data-inc]'); if(inc){ changeQty(Number(inc.dataset.inc),1); return; }
+      const dec = e.target.closest('[data-dec]'); if(dec){ changeQty(Number(dec.dataset.dec),-1); return; }
+      const rm = e.target.closest('[data-rm]'); if(rm){ removeFromCart(Number(rm.dataset.rm)); return; }
+    });
+
+    document.getElementById('search').addEventListener('input', e=>{
+      const q = e.target.value.toLowerCase().trim();
+      state.products = products.filter(p=>p.title.toLowerCase().includes(q));
+      renderProducts();
+    });
+
+    document.getElementById('sort').addEventListener('change', e=>{
+      const v = e.target.value;
+      if(v==='price-asc') state.products.sort((a,b)=>a.price-b.price);
+      else if(v==='price-desc') state.products.sort((a,b)=>b.price-a.price);
+      else state.products = [...products];
+      renderProducts();
+    });
+
+    // Checkout modal
+    const modal = document.getElementById('modal');
+    document.getElementById('checkout').addEventListener('click', ()=>{
+      const keys = Object.keys(state.cart);
+      if(keys.length===0){ alert('El carrito está vacío.'); return; }
+      modal.style.display='flex';
+    });
+    document.getElementById('cancel').addEventListener('click', ()=> modal.style.display='none');
+
+    document.getElementById('checkout-form').addEventListener('submit', e=>{
+      e.preventDefault();
+      // Simula pago: vaciar carrito y mostrar resumen
+      const form = new FormData(e.target);
+      const name = form.get('name'); const email = form.get('email');
+      // Aquí normalmente llamarías a un backend o a una pasarela de pagos.
+      alert('Gracias '+name+'! Pedido recibido (simulado).\nSe ha enviado confirmación a: '+email);
+      state.cart = {}; saveCart(); renderCart(); modal.style.display='none';
+    });
+
+    // Inicializar
+    renderProducts(); renderCart();
+
+    // Nota: puedes añadir integración con pasarelas (Stripe/PayPal) creando un backend o usando Stripe Checkout.
+  </script>
 </body>
 </html>
